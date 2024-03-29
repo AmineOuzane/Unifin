@@ -1,0 +1,167 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="background5">
+    <div class="intro5" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
+        <p style="background-color: transparent;">Découvrez l'univers raffiné d'UniFin, où l'excellence culinaire rencontre l'élégance. <br> Notre gamme de produits incarne l'harmonie parfaite entre saveurs exquises et qualité supérieure.</p>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        
+        <div class="pro" >
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">    
+              
+                <img src="{% static 'images/logodaawat.png' %}" alt="Daawat">
+
+                <div class="card-body">
+                    <h5 class="card-title">Daawat</h5>
+                    <a href="{% url 'daawat' %}" class="btn btn-primary">Découvrir</a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="pro" >
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">    
+                  
+                    <img src="{% static 'images/logocatania.png' %}" alt="Catania">
+    
+                    <div class="card-body">
+                        <h5 class="card-title">Catania</h5>
+                        <a href="{% url 'catania' %}" class="btn btn-primary">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="pro" >
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">    
+                      
+                        <img  src="{% static 'images/logomagicclean.png' %}" alt="Magicclean">
+        
+                        <div class="card-body">
+                            <h5 class="card-title">Magicclean</h5>
+                            <a href="{% url 'magicclean' %}" class="btn btn-primary">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+      
+        
+    </div>
+</div>
+
+
+   <style>
+    
+    .background5{
+      background-image: url('{% static 'images/banner.png' %}');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      width: auto;
+      height: 500px;
+      color: white; /* Adjust content colors for readability */
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    } 
+    
+    .intro5 {
+        position: absolute;
+        width: 600px;
+       margin-left: 2%;
+       margin-top: 10%;
+       background-color: transparent;
+       font-size: 22px;
+       color: white;
+    }
+    .intro5 p{
+        font-family: 'Bangers', cursive;
+        font-family: 'Merienda', cursive;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Sarabun', sans-serif;
+        font-size: 24px;
+    }
+
+    h1{
+        border-top: 5px solid rgb(53, 155, 53);
+        border-radius: 10px;
+        padding: 20px;
+        font-weight: bold;
+        margin-left: 150px ;
+        margin-right: 150px;
+        text-align: center;
+        margin-top: 40px;
+        font-family: 'Bangers', cursive;
+        font-family: 'Merienda', cursive;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Sarabun', sans-serif;
+        
+    }
+
+    .pro{
+        margin: 20px;
+        border-radius: 10px;
+        padding: 5px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .pro:hover{
+        transform: translateY(-25px);
+        box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 1.5);
+    }
+
+    .c {
+      text-decoration: none ;
+      font-size: 24px;
+      text-align: center;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    h5{
+        font-family: 'Bangers', cursive;
+        font-family: 'Merienda', cursive;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Sarabun', sans-serif;
+    }
+
+
+
+    
+    /* Media query for mobile devices */
+    @media (max-width: 768px) {
+        .background5 {
+            height: 200px;
+        }
+        .intro5 {
+            font-size: 16px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        .pro {
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .pro:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+        }
+    }
+   </style>
+
+{%  endblock %}

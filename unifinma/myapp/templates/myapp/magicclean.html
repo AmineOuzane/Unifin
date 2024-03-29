@@ -1,0 +1,178 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="backgroundclean">
+    <div class="introclean" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
+        <p>Plongez dans l'essence de la propreté avec la gamme exceptionnelle de produits de nettoyage "MagicClean </p>
+    </div>
+</div>
+
+<h1 data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">Notre gamme de produit Magicclean</h1>
+<p data-aos="fade-up" data-aos-duration="2000" data-aos-once="true" class="descmagic">Découvrez l'excellence en matière de produits de nettoyage avec notre gamme Magicclean. <br> Des solutions innovantes pour un environnement impeccable et étincelant.</p>
+
+<div class="container mt-5">
+    <div class="row">
+        {% for produit in products %}
+        <div class="pro" >
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">    
+               <!-- <img src="{% static 'products/RizBasmatiTraditional.PNG' %}" alt="{{product.name}}">-->
+               <img src="{{ produit.image.url }}" alt="{{ produit.name }}">
+               
+
+                <div class="card-body">
+                    <h5 class="card-title">{{produit.nom}}</h5>
+                    <h6 class="card-title">Prix: {{produit.prix}}</h6>
+                    <div class="st">
+                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                            <lord-icon
+                                src="https://cdn.lordicon.com/jlvsilmg.json"
+                                trigger="loop"
+                                delay="2000"
+                                colors="primary:#c67d53,secondary:#000000"
+                                stroke="45"
+                                style="width:35px;height:35px">
+                            </lord-icon>
+                        <p class="card-text">{{produit.stock}}</p>
+                    </div>
+                    <a href="{% url 'detail' produit.id %}" class="btn btn-primary">Voir</a>
+                </div>
+            </div>
+        </div>
+        </div>
+        {% endfor %} 
+        
+    </div>
+</div>
+
+
+<style>
+    .st{
+        display: block;
+    }
+    .st img{
+        width: 30px;
+        height: 30px;
+    }
+    .st p{
+        display: inline;
+        font-size: 1.1rem;
+        font-weight: bold;
+        font-family: 'Bangers', cursive;
+        font-family: 'Merienda', cursive;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Sarabun', sans-serif;
+   
+    }
+    .backgroundclean{
+      background-image: url('{% static 'images/bannerclean.png' %}');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      width: auto;
+      height: 500px;
+      color: white; /* Adjust content colors for readability */
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    } 
+    
+    .introclean {
+        position: absolute;
+        width: 550px;
+        height: 350px;
+        margin-left: 715px;
+        margin-top: 160px;
+       font-size: 22px;
+       color: black;
+       background-color: transparent;
+       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    h1{
+        border-top: 5px solid rgb(53, 155, 53);
+        border-radius: 10px;
+        padding: 20px;
+        font-weight: bold;
+        margin-left: 150px ;
+        margin-right: 150px;
+        text-align: center;
+        margin-top: 40px;
+        font-family: 'Bangers', cursive;
+        font-family: 'Merienda', cursive;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Sarabun', sans-serif;
+    }
+    .descmagic{
+        font-size: 20px;
+        margin-left: 18px;
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgb(110, 110, 110);
+    }
+    .introclean p{
+        font-family: "Open Sans", sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 15px;
+        text-align: center;
+        background-color: transparent;
+    }
+  
+    .tp{
+        height: 3000px;
+    }
+    .box-element{
+        box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+        background-color: #fff;
+        border-radius: 4px;
+        padding: 10px;
+        width: 300px;
+        margin-left: 50px;
+    }
+
+
+    .card-img {
+        width: 100%;
+        height: 100%; /* Adjust the height as per your requirements */   
+    }   
+    .c {
+      text-decoration: none ;
+      font-size: 24px;
+      text-align: center;
+      font-family: 'Raleway', sans-serif;
+    }
+    .pro{
+        margin: 20px;
+        border-radius: 10px;
+        padding: 5px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s, box-shadow 0.4s;   
+    }
+    .pro:hover{
+        transform: translateY(-25px);
+        box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 1.5);
+    }
+
+    h5{
+        font-family: 'Bangers', cursive;
+        font-family: 'Merienda', cursive;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Sarabun', sans-serif;
+    }
+
+    h6{
+        font-weight: 600;
+        
+    }
+    
+</style>
+
+{%  endblock %}

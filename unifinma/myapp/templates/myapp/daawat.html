@@ -1,0 +1,177 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="background">
+    <div class="intro2" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
+        <p>Explorez l'essence de l'excellence culinaire avec la gamme raffinée de riz basmati "Daawat". Chaque grain incarne la perfection aromatique. </p>
+    </div>
+</div>
+
+<h1 data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">Notre gamme de produit Daawat</h1>
+<p data-aos="fade-up" data-aos-duration="2000" data-aos-once="true" class="desc">Le Riz Basmati Daawat, leader sur le marché, est de qualité supérieur. Il regorge de bienfaits, de vitamines, de minéraux, de protéines et de fibre qui permettent de maintenir un taux de cholesterol optimal <br><br>
+Les grains sont blancs, plus grands que les autres riz, avec un gout et une odeur intense</p>
+
+<div class="container mt-5">
+    <div class="row">
+        {% for produit in products %}
+        <div class="pro" >
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">    
+               <!-- <img src="{% static 'products/RizBasmatiTraditional.PNG' %}" alt="{{product.name}}">-->
+               <img src="{{ produit.image.url }}" alt="{{ produit.name }}">
+               
+
+                <div class="card-body">
+                    <h5 class="card-title">{{produit.nom}}</h5>
+                    <h6 class="card-title">Prix: {{produit.prix}}</h6>
+                    <div class="st">
+                       <!--<img src="{% static 'images/box.png' %}" alt="box">--> 
+                       <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                            <lord-icon
+                                src="https://cdn.lordicon.com/jlvsilmg.json"
+                                trigger="loop"
+                                delay="2000"
+                                colors="primary:#c67d53,secondary:#000000"
+                                stroke="45"
+                                style="width:35px;height:35px">
+                            </lord-icon>
+                        <p class="card-text">{{produit.stock}}</p>
+                    </div>
+                    <a href="{% url 'detail' produit.id %}" class="btn btn-primary">Voir</a>
+                </div>
+            </div>
+        </div>
+        </div>
+        {% endfor %} 
+        
+    </div>
+</div>
+
+
+<style>
+    .st{
+        display: block;
+    }
+    .st img{
+        width: 30px;
+        height: 30px;
+    }
+    .st p{
+        display: inline;
+        font-size: 1.1rem;
+        font-weight: bold;
+        font-family: 'Bangers', cursive;
+        font-family: 'Merienda', cursive;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Sarabun', sans-serif;
+   
+    }
+    .background{
+      background-image: url('{% static 'images/productbanner.png' %}');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      width: auto;
+      height: 500px;
+      color: white; /* Adjust content colors for readability */
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    } 
+    
+    .intro2 {
+        position: absolute;
+        width: 480px;
+        height: 350px;
+        margin-left: 700px;
+        margin-top: 200px;
+       font-size: 22px;
+       color: black;
+       background-color: transparent;
+       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    h1{
+        border-top: 5px solid rgb(53, 155, 53);
+        border-radius: 10px;
+        padding: 20px;
+        font-weight: bold;
+        margin-left: 150px ;
+        margin-right: 150px;
+        text-align: center;
+        margin-top: 40px;
+        font-family: 'Bangers', cursive;
+        font-family: 'Merienda', cursive;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Sarabun', sans-serif;
+    }
+    .desc{
+        font-size: 20px;
+        margin-left: 18px;
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgb(110, 110, 110);
+    }
+    .intro2 p{
+        font-family: "Open Sans", sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 15px;
+        text-align: center;
+        background-color: transparent;
+    }
+  
+    .tp{
+        height: 3000px;
+    }
+    .box-element{
+        box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+        background-color: #fff;
+        border-radius: 4px;
+        padding: 10px;
+        width: 300px;
+        margin-left: 50px;
+    }
+
+
+    .card-img {
+        width: 100%;
+        height: 100%; /* Adjust the height as per your requirements */   
+    }   
+    .c {
+      text-decoration: none ;
+      font-size: 24px;
+      text-align: center;
+      font-family: 'Raleway', sans-serif;
+    }
+    .pro{
+        margin: 20px;
+        border-radius: 10px;
+        padding: 5px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s, box-shadow 0.4s;   
+    }
+    .pro:hover{
+        transform: translateY(-25px);
+        box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 1.5);
+    }
+
+    h5{
+        font-family: 'Bangers', cursive;
+        font-family: 'Merienda', cursive;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Sarabun', sans-serif;
+    }
+    h6{
+        font-weight: 600;
+    }
+</style>
+
+{%  endblock %}

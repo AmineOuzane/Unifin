@@ -1,0 +1,201 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+
+<div class="containerrecette">
+    <div class="contentrecette"  >
+        <img src="{% static 'images/recettebackv4.png' %}" alt="backgroundrecette">
+            <div class="text" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
+                <h1>Succombez à nos recettes : <br>plaisir et créativité à chaque bouchée.</h1>
+            </div>
+        
+    </div>
+</div>
+
+
+<div class="containerrecette">
+    <div class="contentrecette"  >
+        <img src="{% static 'images/recetteback.png' %}" alt="backgroundrecette">
+            <div class="text1"  data-aos="fade-right" data-aos-duration="1600" data-aos-once="true">
+                <h1>Shawarma Maison avec Sauce Tahini Catania</h1>
+                 <p><span class="souligne">Preparation de la sauce Tahina Catania:</span><br><br> <span class="espace"> Tahina Catania - Jus citron - Ail émincé - Sel et poivre - Eau</span> <br><br> <span class="souligne">Instruction</span> <br><br>
+                    <span class="espace">Mélangez sauce tahini, citron, ail, sel, poivre et eau. </span><br><span class="espace">Marinez la viande avec huile, épices, sel et poivre. <br></span> 
+                    <span class="espace">Cuisez la viande dans une poêle. <br></span> <span class="espace">échauffez le pain pita ou les tortillas. <br></span> <span class="espace">Étalez sauce tahini sur le pain. <br></span> 
+                   <span class="espace">Ajoutez viande et légumes. <br></span> <span class="espace">Servez avec sauce tahini !!</span>  </p>
+                   <a href="{% url 'catania' %}"class="read-more3" >Catania</a>
+            </div>
+        
+    </div>
+</div>
+
+
+<div class="containerrecette">
+    <div class="contentrecette"  >
+        <img src="{% static 'images/recetterizbasmati.png' %}" alt="backgroundrecette">
+            <div class="text2"  data-aos="fade-right" data-aos-duration="1600" data-aos-once="true">
+                <h1>Cuisiniez votre Riz Basmati des maintenant !!</h1>
+                 <p> <span class="espace"> <b>Rincer le Riz :</b>  Rincez le riz basmati à l'eau froide jusqu'à ce que l'eau soit claire.</span> <br><br>
+                    <span class="espace"> <b>Proportions :</b>Mesurez 1 tasse de riz et 2 tasses d'eau. Ces proportions peuvent varier légèrement selon la variété de riz basmati.</span><br><br> <span class="espace"> <b>Faire Bouillir l'Eau :</b>Portez les 2 tasses d'eau à ébullition dans une casserole.<br><br></span> 
+                    <span class="espace"> <b> Ajouter le Riz et le Sel :</b> Ajoutez une pincée de sel au riz et mélangez légèrement. <br><br></span> <span class="espace"> <b> Cuire à Couvert :</b> Réduisez le feu à doux et couvrez la casserole avec un couvercle hermétique.<br><br></span> <span class="espace"> <b> Laisser Cuire : </b>Laissez le riz cuire pendant environ 15-20 minutes, jusqu'à ce que l'eau soit absorbée et que les grains soient tendres. <br><br></span> 
+                   <span class="espace"> <b>Laisser Reposer :</b>  Retirez la casserole du feu et laissez reposer à couvert pendant 5-10 minutes pour que les grains s'aèrent et atteignent la texture parfaite<br><br></span> <span class="espace"> <b>Égrener le Riz : </b> À l'aide d'une fourchette, égrenez doucement le riz pour séparer les grains et éviter qu'ils ne collent ensemble.</span> 
+                   <br> <br><span class="espace"> <b>Servir :  </b> Transférez le riz basmati cuit dans un plat de service et servez chaud en accompagnement de vos plats préférés.</span>  </p>
+                    <a href="{% url 'daawat' %}"class="read-more3" >Daawat</a>
+            </div>
+        
+    </div>
+</div>
+
+
+
+<style>
+    b{
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    .contentrecette img{
+        width: 100%;
+    }
+
+    .containerrecette{
+        width: 100%;
+    }
+    .contentrecette{
+        width: 100%;
+        position: relative;
+    }
+
+   .text{
+    position: absolute;
+    top: 0px;
+    background-color: transparent; /* Reset to default transparent background */
+    text-align: center;
+   }
+   .text h1{
+    background-color: transparent; /* Reset to default transparent background */
+    color: lightgrey;
+    text-align: center;
+    padding-top: 300px;
+    padding-bottom: 50px;
+    padding-left: 300px;
+    font-family: 'Sarabun', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    
+    
+
+   }
+   .text p{
+    background-color: transparent; /* Reset to default transparent background */
+    color: lightgrey;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    padding-left: 330px;
+
+   }
+
+   .read-more2 {
+    background-color: rgb(182, 41, 41);
+    color: white;
+    border: none;
+    border-radius: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+    margin-left: 950px;
+    font-family: Arial;
+}
+
+.read-more2:hover {
+    background-color: rgb(240, 70, 70);
+}
+
+
+   .text1{
+    position: absolute;
+    top: 0px;
+    background-color: transparent; /* Reset to default transparent background */
+   }
+   .text1 h1{
+    background-color: transparent; /* Reset to default transparent background */
+    color: lightgrey;
+    font-size: 34px;
+    padding-left: 60px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    font-family: 'Sarabun', sans-serif;
+    font-style: italic;
+
+   }
+   .text1 p{
+    background-color: transparent; /* Reset to default transparent background */
+    color: lightgrey;
+    padding-left: 80px;
+    font-size: 14px;
+   }
+
+   .text2{
+    position: absolute;
+    top: 0px;
+    background-color: transparent; /* Reset to default transparent background */
+   }
+   .text2 h1{
+    background-color: transparent; /* Reset to default transparent background */
+    color: #FFFFFF;
+    font-size: 34px;
+    padding-left: 95px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    font-family: 'Sarabun', sans-serif;
+    font-style: italic;
+
+   }
+   .text2 p{
+    background-color: transparent; /* Reset to default transparent background */
+    color: #FFFFFF ;
+    padding-left: 80px;
+    font-size: 10px;
+    width: 750px;
+    }
+
+   .souligne{
+    font-size: 22px;
+    text-decoration: underline;
+    background-color: transparent;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   }
+
+   .espace{
+    font-size: 17px;
+    background-color: transparent;
+    padding-left: 35px ;
+   }
+
+   .read-more3 {
+    background-color: rgb(182, 41, 41);
+    color: white;
+    border: none;
+    border-radius: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+    margin-left: 500px;
+    font-family: Arial;
+}
+
+
+.read-more3:hover {
+    background-color: rgb(240, 70, 70);
+}
+   
+
+</style>
+
+{%  endblock %}

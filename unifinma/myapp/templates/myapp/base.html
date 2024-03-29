@@ -1,0 +1,389 @@
+{% load static %}
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="aos-by-red.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>UNIFIN</title>
+</head>
+<body>
+
+       <header>
+
+
+        <div class="logo">
+          <img src="{% static 'images/logo.jpeg' %}" alt="Logo">
+        </div>
+
+        <style>
+
+@media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+             /* Mobile navigation bar styles */
+             .nav-bar {
+                background-color: #333;
+                color: #fff;
+                padding: 10px;
+            }
+        }
+
+          header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 20px;
+                background-color: #f3ede3; /* f3ede3Light beige */
+                color: #ffffff;
+            }
+
+ 
+             .wrapper ul {
+                list-style-type: none;
+                display: flex;
+                
+            }
+  
+             .wrapper ul li {
+                margin-right: 8px;
+                
+            }
+  
+              .wrapper ul li:last-child {
+                   margin-right: 0;
+                  
+              }                         
+
+           .logo img {
+              width: 160px; /* Adjust the width of the logo as needed -*/
+              height: auto;
+             /* mix-blend-mode: color-burn;*/
+              
+          }
+
+          
+        </style>
+
+        <nav class="wrapper">
+          <ul>
+            <li>
+              <a href="{% url 'acceuil' %}">Acceuil</a>
+            </li>
+            <li>
+              <a href="{% url 'product_list_general'  %}">Produits</a>
+             
+            </li>
+            <li>
+              <a href="{% url 'recette' %}">Recette</a>
+            </li>
+            
+           <!-- <li>
+              <a href="{% url 'blog' %}">Lien Utiles</a>
+            </li>-->
+            <li>
+              <a href="{% url 'cart' %}">Panier ({{user.cart.orders.count}}) </a>
+            </li>
+            <!--<li>
+              <a href="{% url 'about' %}">A propos de nous</a>
+            </li>-->
+            <li>
+              <a href="{% url 'contact' %}">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        
+               
+       <form method="get" action="{% url 'search_results' %}">
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Search...">
+      </form>
+
+      
+      <style>
+
+
+
+      </style>
+
+      {% if user.is_authenticated %}
+
+<span style="color:black ; ">hello {{request.user}}</span>
+<span><a href="{% url 'logout' %}">logout</a></span>
+
+<div class="usericon">
+  <a href="{% url 'edit_profile' %}">
+      <img src="{% static 'images/usericon.png' %}" alt="usericon">
+  </a>
+</div>
+
+
+        {% endif %}
+      <style>
+        .usericon img{
+              display: block;
+              transition: transform 0.3s ease;
+              width: 60px; /* Adjust the width of the logo as needed -*/
+              height: auto;
+              mix-blend-mode: color-burn;
+        }
+        .usericon:hover img{
+            transform: scale(1.3);
+
+        }
+        .input {
+            border: none;
+            outline: none;
+            border-radius: 15px;
+            padding: 1em;
+            background-color: #ccc;
+            box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+            transition: 300ms ease-in-out;
+        }
+    
+        .input:focus {
+            background-color: white;
+            transform: scale(1.05);
+            box-shadow: 13px 13px 100px #969696,
+            -13px -13px 100px #ffffff;
+        }
+
+
+        .wrapper {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.wrapper ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0;
+  
+}
+
+.wrapper li {
+  display: inline-block;
+  position: relative;
+  transition: background-color 0.25s ease-in-out; /* Add transition effect */
+  padding: 8px;
+  border-radius: 15px;
+  margin-left: 0;
+}
+
+.wrapper a {
+  text-decoration: none;
+  color: #333; /* Dark text color */
+  font-size: 18px;
+ 
+}
+
+.wrapper li:hover {
+  background-color: #17a07e; /*  background color on hover */
+}
+
+.wrapper a:hover {
+  color: whitesmoke; /* brighter text color on hover */
+}
+
+    </style>
+    
+      
+      </header>
+   
+      <style>
+        
+      </style>
+
+
+    <main>
+        {% block content %}
+        {% endblock %}
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 3000,
+        once: true,
+      });
+    </script>
+    </main>
+    
+</body>
+
+
+<footer>
+
+        <div class="container__footer">
+            <div class="box__footer">
+                <div class="logo">
+                    
+                </div>
+                <div class="terms">
+                   <!--- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas impedit cum cumque velit libero officiis quam doloremque reprehenderit quae corporis! Delectus architecto officia praesentium atque laudantium, nam deleniti sapiente deserunt.</p>-->
+                </div>
+            </div>
+            <div class="box__footer">
+                <h2>Aide</h2>
+                <a href="https://www.google.com">App Desarrollo</a>
+                <a href="#">Return Poliy</a>
+                <a href="#">Contacter nous</a>
+                <a href="#">Compte</a>
+            </div>
+
+            <div class="box__footer">
+                <h2>Compagnie</h2>
+                <a href="#">À propos de</a>
+                <a href="#">Aliments</a>
+                <a href="#">Blog</a>
+                <a href="#">Recette</a>              
+            </div>
+
+            <div class="box__footer">
+                <h2>Reseaux Sociaux</h2>
+                <a href="#"> <i class="fab fa-facebook-square"></i> Facebook</a>
+                <a href="#"><i class="fab fa-twitter-square"></i> Twitter</a>
+                <a href="#"><i class="fab fa-linkedin"></i> Linkedin</a>
+                <a href="#"><i class="fab fa-instagram-square"></i> Instagram</a>
+            </div>
+
+        </div>
+
+        <div class="box__copyright">
+            <hr>
+            <p>Tous les droits réservés © 2021 </p>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+    background-color: #f3ede3; /* Light beige */
+
+    
+}
+
+
+/*Aquí debajo va el FOOTER*/
+
+footer{
+  background-color: darkslategrey;
+    width: 100%;
+    padding: 50px 0px;
+    background-image: url(../Images/background-footer.svg);
+    background-size: cover;
+    
+    /*background-color: #d0f0f8;
+    -webkit-mask-image: url("../Images/background-footer.svg");
+    mask-image: url("../Images/background-footer.svg");
+    -webkit-mask-size: cover;
+    mask-size: cover;*/
+}
+
+.container__footer{
+  background-color: darkslategrey;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    
+   
+}
+
+.box__footer{
+  background-color: darkslategrey;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+   
+}
+
+.box__footer .logo img{
+  background-color: darkslategrey;
+    width: 180px;
+    
+}
+
+.box__footer .terms{
+  background-color: darkslategrey;
+    max-width: 350px;
+    margin-top: 20px;
+    font-weight: 500;
+    color: #000000;
+    font-size: 18px;
+    
+}
+
+.box__footer h2{
+  background-color: darkslategrey;
+    margin-bottom: 30px;
+    color: white;
+    font-weight: 700;
+}
+
+.box__footer a{
+  background-color: darkslategrey;
+    margin-top: 10px;
+    color: #7a7a7a;
+    font-weight: 600;
+}
+
+.box__footer a:hover{
+    opacity: 0.8;
+}
+
+.box__footer a .fab{
+  background-color: darkslategrey;
+    font-size: 20px;
+}
+
+.box__copyright{
+  background-color: darkslategrey;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 0px 40px;
+}
+
+.box__copyright p{
+  background-color: darkslategrey;
+    margin-top: 20px;
+    color: black;
+}
+
+.box__copyright hr{
+  background-color: darkslategrey;
+    border: none;
+    height: 1px;
+    
+   
+}
+
+</style>
+</html>

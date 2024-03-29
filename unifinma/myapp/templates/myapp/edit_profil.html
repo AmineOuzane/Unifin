@@ -1,0 +1,24 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block content %}
+
+
+  <h2>Edit Profile</h2>
+  
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" value="{{ user.username }}" disabled>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="{{ user.email }}">
+    </div>
+    <button type="submit">Save Changes</button> 
+  </form>
+  {% for message in messages %}
+  <p>{{message}}</p>
+  {% endfor %}
+
+{% endblock %}

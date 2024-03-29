@@ -1,0 +1,195 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+    <h1>Résultats de votre recherche :</h1>
+
+    {% if results %}
+        <div class="container mt-5">
+            <div class="row">
+                {% for produit in results %}
+                    <div class="pro" >
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">    
+                                <img src="{{ produit.image.url }}" alt="{{ produit.name }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ produit.nom }}</h5>
+                                    <h6 class="card-title">Prix: {{produit.prix}}</h6>
+                                    <div class="st">
+                                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                            <lord-icon
+                                src="https://cdn.lordicon.com/jlvsilmg.json"
+                                trigger="loop"
+                                delay="2000"
+                                colors="primary:#c67d53,secondary:#000000"
+                                stroke="45"
+                                style="width:35px;height:35px">
+                            </lord-icon>
+                                        <p class="card-text">{{ produit.stock }}</p>
+                                    </div>
+
+                                    <button class="CartBtn">
+                                        <span class="IconContainer"> 
+                                          <svg style="background-color: rgb(255, 208, 0) !important;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="rgb(17, 17, 17)" class="cart"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg>
+                                        </span>
+                                        <a class="text" href="{% url 'add_to_cart' produit.id %}" >Add to cart</a>
+                                      </button>
+                                    
+
+                                    
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %} 
+            </div>
+        </div>
+    {% else %}
+        <p>Aucun résultat trouvé.</p>
+    {% endif %}
+
+    <style>
+
+        /* add cart */
+
+        .CartBtn {
+  width: 140px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background-color: rgb(255, 208, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: .5s;
+  overflow: hidden;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+}
+
+.IconContainer {
+  position: absolute;
+  left: -50px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: .5s;
+}
+
+.icon {
+  border-radius: 1px;
+}
+
+.text {
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(17, 17, 17);
+  z-index: 1;
+  transition-duration: .5s;
+  font-size: 1.04em;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.text:hover {
+    text-decoration: none;
+  text-transform: none;
+  color: black;
+}
+
+.CartBtn:hover .IconContainer {
+  transform: translateX(58px);
+  border-radius: 40px;
+  transition-duration: .5s;
+}
+
+.CartBtn:hover .text {
+  transform: translate(10px,0px);
+  transition-duration: .5s;
+}
+
+.CartBtn:active {
+  transform: scale(0.95);
+  transition-duration: .5s;
+}
+
+        /* end add cart*/
+        h1{
+            text-align: center;   
+            font-family: 'Bangers', cursive;
+        font-family: 'Merienda', cursive;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Sarabun', sans-serif; 
+        letter-spacing: 1px;
+        }
+
+        .st{
+        display: block;
+    }
+    .st img{
+        width: 30px;
+        height: 30px;
+    }
+    .st p{
+        display: inline;
+        font-size: 1.1rem;
+        font-weight: bold;
+        font-family: 'Bangers', cursive;
+        font-family: 'Merienda', cursive;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Sarabun', sans-serif;
+   
+    }
+
+    .box-element{
+        box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+        background-color: #fff;
+        border-radius: 4px;
+        padding: 10px;
+        width: 300px;
+        margin-left: 50px;
+    }
+
+
+    .card-img {
+        width: 100%;
+        height: 100%; /* Adjust the height as per your requirements */   
+    }   
+    .c {
+      text-decoration: none ;
+      font-size: 24px;
+      text-align: center;
+      font-family: 'Raleway', sans-serif;
+    }
+    .pro{
+        margin: 20px;
+        border-radius: 10px;
+        padding: 5px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s, box-shadow 0.4s;   
+    }
+    .pro:hover{
+        transform: translateY(-25px);
+        box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 1.5);
+    }
+
+    h6{
+        font-weight: 600;
+    }
+    
+    </style>
+{% endblock %}

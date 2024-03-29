@@ -1,0 +1,28 @@
+body{
+    font-family: 'Bangers', cursive;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 25px;   
+}
+
+a{
+    text-decoration: none;
+}
+ /*/*/*/*/*/*/*/*/*/*/*********************************************//*////*/*/***/
+
+    /*.wrapper {
+        margin: 0 auto;
+        width: 1000px;
+        
+    }
+
+
+    header li{
+        
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        
+    }
+
+ */
